@@ -14,11 +14,11 @@ datasource db {
 }
 
 
-model Items{
-  title String @id @map("Title")
-  quantity Int @map("Quantity")
-  price Float @map("Price")
-  datetime DateTime @default(now())@map("Date_Time")
+model Items {
+  title    String   @id @map("Title")      
+  quantity Int      @map("Quantity")
+  price    Float    @map("Price")
+  datetime DateTime @default(now()) @map("Date_Time")
 
   @@map("Items")
 }

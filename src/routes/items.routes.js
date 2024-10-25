@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 //create an item - /items
-router.post("", createItem);
+router.post("/", createItem);
 
 //getting items- /items
 router.get("", getAllItems);

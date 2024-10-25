@@ -1,22 +1,35 @@
 import { PrismaClient } from "@prisma/client";
-const client = PrismaClient();
+const client = new PrismaClient();
 
 const createItem = async (req, res) => {
   const { title, quantity, price } = req.body;
   try {
     const newItem = await client.items.create({
-      data: {
-        title,
-        quantity,
-        price,
-      },
-    });
-    res
-      .status(201)
-      .json({ message: "contact created successfully", data: newItem });
-    console.log(newItem);
+        data: {
+          title: "title 4",
+          quantity: 10,
+          price: 20,
+        },
+      });
+      
+      res.status(201).json({ message: "Item created successfully", data: newItem });
+      
+    // const newItem = await client.items.create({
+    //   data: {
+    //     title: title,
+    //     quantity: quantity,
+    //     price: price,
+    //   },
+    // });
+
+    // res
+    //   .status(201)
+    //   .json({ message: "contact created successfully", data: newItem });
+
+    // console.log(newItem);
   } catch (e) {
-    res.status(500).json({ message: "Server Error" });
+    // res.status(500).json({ message: "Server Error" });
+    res.send(e.message)
   }
 };
 
